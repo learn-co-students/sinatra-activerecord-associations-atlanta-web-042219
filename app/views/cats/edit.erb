@@ -1,0 +1,12 @@
+<h1><%= @cat.name %>'s info</h1>
+
+<form method="POST" action="/cats/<%= @cat.id %>">
+	<input type="hidden" name="_method" value="PATCH">
+	<h3>
+		Name:  <input name="name" value="<%= @cat.name %>"><br>
+		Breed: <input name="breed" value="<%= @cat.breed %>"><br>
+		Age:   <input name="age" value="<%= @cat.age %>"><br>
+		Owner: <input name="owner_name" value="<%= @cat.owner == nil ? 'none' : @cat.owner.name %>">
+	</h3>
+	<input type="submit" value="Update"/>
+</form>

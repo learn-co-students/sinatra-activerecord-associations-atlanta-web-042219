@@ -1,0 +1,21 @@
+<style>
+    form {display: inline;}
+</style>
+
+<!--body START-->
+
+<h1>Check out these dope cats.</h1>
+
+<ul>
+	<% Cat.all.each do |cat| %>
+		<h3><li><a href="/cats/<%= cat.id %>"><%= cat.name %></a></li></h3>
+	<% end %>
+</ul>
+
+<form method="GET" action="/">
+	<input type="submit" value="Back">
+</form>
+
+<form method="GET" action="/cats/new">
+	<input type="submit" value="New">
+</form>

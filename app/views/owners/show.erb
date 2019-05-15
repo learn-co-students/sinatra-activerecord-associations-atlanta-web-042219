@@ -1,0 +1,27 @@
+<style>
+    form {display: inline;}
+</style>
+
+<!--body START-->
+
+<% if @owner.cats.count == 0%>
+	<h1><%= @owner.name %> doesn't have any cats (yet!)</h1>
+
+<% else %>
+	<h1><%= @owner.name %>'s cats</h1>
+
+	<ul>
+		<% @owner.cats.each do |cat| %>
+			<h3><li><a href="/cats/<%= cat.id %>"><%= cat.name %></a></li></h3>
+		<% end %>
+	</ul>
+<% end %>
+
+<form method="GET" action="/owners">
+	<input type="submit" value="Home">
+</form>
+
+<form method="POST" action="/owners/<%= @owner.id %>">
+	<input value="DELETE" type="hidden" name="_method">
+	<input type="submit" value="Delete">
+</form>
