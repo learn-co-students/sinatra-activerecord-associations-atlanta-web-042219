@@ -1,0 +1,21 @@
+<style>
+    form {display: inline;}
+</style>
+
+<!--body START-->
+
+<h1>List of owners.</h1>
+
+<ul>
+	<% Owner.all.each do |owner| %>
+		<h3><li><a href="/owners/<%= owner.id %>"><%= owner.name %></a></li></h3>
+	<% end %>
+</ul>
+
+<form method="GET" action="/">
+	<input type="submit" value="Back">
+</form>
+
+<form method="GET" action="/owners/new">
+	<input type="submit" value="New">
+</form>
